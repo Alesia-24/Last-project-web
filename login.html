@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="UTF-8">
+            <title>Web Dev. project</title>
+            <link rel="stylesheet" href="index.css">
+        </head>
+        
+        <body>
+            <h1 id="title">Log In</h1>
+            <p id="description">Don't have an account?<a href="index.html" id="loginLink">Register</a></p>
+            <form id="login-form">
+                <fieldset>
+                    <label id="name-label">Email or Username<input placeholder="Enter your email or name" id="email" type="text"
+                            required /></label><br>
+                    <label id="password-label">Password: <input placeholder="Enter your password" id="password" type="password"
+                            required /></label><br>
+                    <br><input id="login" type="submit" value="Log In" />
+                </fieldset>
+            </form>
+            <script>
+                const login = document.getElementById('login');
+                login.addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    // Perform form validation
+                    const emailInput = document.getElementById('email');
+                    const passwordInput = document.getElementById('password');
+
+                    // Check if any of the required fields are empty
+                    if (!emailInput.value || !passwordInput.value) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+
+                    // Redirect to second.html upon successful login
+                    window.location.href = 'second.html';
+                });
+            </script>
+        </body>
+        
+        </html>

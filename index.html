@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Dev. project</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="form">
+        <label>
+            <h1 id="title">Welcome to the Wellness Club!<br>Building the best of you</h1>
+            <p id="description">Already a member? <a href="login.html" id="loginLink">Log in</a></p>
+            <form id="registration-form">
+        </label>
+        <label id="name-label">
+            FullName: <input placeholder="Enter your name" id="name" type="text" required />
+        </label>
+        <br>
+        <label id="email-label">
+            Email: <input placeholder="Enter your email" id="email" type="email" required />
+        </label>
+        <br>
+        <label id="password-label">
+            Password: <input placeholder="Enter your password" id="password" type="password" required />
+        </label>
+        <br>
+        <div class="gender">
+            <fieldset>
+                <legend>Gender</legend>
+                <div class="radio-group">
+                    <label for="Female">
+                        <input id="female" type="radio" name="answer-type" class="inline" value="Female" />Female
+                    </label>
+                    <label for="Male">
+                        <input id="male" type="radio" name="answer-type" class="inline" value="Male" />Male
+                    </label>
+                    <label for="Neutral">
+                        <input id="neutral" type="radio" name="answer-type" class="inline" value="Neutral"
+                            checked />Neutral
+                    </label>
+                </div>
+            </fieldset>
+        </div>
+        <br>
+    </div>
+    <br>
+    <input id="signup" type="button" value="Sign Up" required />
+
+
+    </form>
+
+    <script>
+       
+        // Add click event listener for the "Sign Up" button
+        const signupButton = document.getElementById('signup');
+        signupButton.addEventListener('click', function () {
+            // Perform form validation
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const genderInputs = document.querySelectorAll('input[name="answer-type"]');
+    
+            // Check if any of the required fields are empty
+            if (!nameInput.value || !emailInput.value || !passwordInput.value) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+    
+            // Check if a gender option is selected
+            let genderSelected = false;
+            for (const genderInput of genderInputs) {
+                if (genderInput.checked) {
+                    genderSelected = true;
+                    break;
+                }
+            }
+    
+            if (!genderSelected) {
+                alert('Please select a gender.');
+                return;
+            }
+    
+            // Redirect to the third page if all checks pass
+            window.location.href = 'second.html';
+        });
+    </script>
+    
+
+</body>
+
+</html> 
